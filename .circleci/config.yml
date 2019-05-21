@@ -1,0 +1,16 @@
+version: 2.1
+
+parameters:
+  some-setting:
+    type: string
+    default: "default"
+
+orbs:
+  tools: circleci/build-tools@volatile
+
+
+jobs:
+  build:
+    executor: tools/default
+    steps:
+      - run: echo "I ran because of ${CIRCLE_USERNAME}. My setting is `<< pipeline.parameters.some-setting >>`"
